@@ -1,0 +1,13 @@
+# Multi-Modal Evidence Review — runtime dependencies (pinned for reproducibility).
+# Install: python -m venv .venv && source .venv/bin/activate && pip install -r code/requirements.txt
+
+anthropic==0.69.0          # Claude Messages API client (VLM perception + reconciliation)
+pillow==11.3.0             # image loading / normalization to PNG before upload (native AVIF)
+pillow-avif-plugin==1.5.5  # AVIF decode fallback for Pillow builds without native support
+pandas==2.2.3              # CSV ingest (claims, history, evidence rules) + output.csv
+python-dotenv==1.0.1       # optional .env hydration; real env vars always win
+tenacity==9.0.0            # retry/backoff for rate limits and transient API errors
+
+# Optional hybrid second-opinion path (config.ENABLE_GEMINI_HYBRID). Uncomment
+# only if you enable the Gemini tier; GEMINI_API_KEY is read from env in that mode.
+google-genai==1.2.0

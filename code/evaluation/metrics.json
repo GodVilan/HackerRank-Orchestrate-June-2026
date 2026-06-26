@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-06-19T19:12:00.104011-05:00",
+  "dataset": "dataset/sample_claims.csv",
+  "n_rows": 20,
+  "configs": {
+    "A:baseline-S46": {
+      "strategy": "single_pass_baseline",
+      "model": "claude-sonnet-4-6"
+    },
+    "B:two-stage-S46": {
+      "strategy": "two_stage_pipeline",
+      "model": "claude-sonnet-4-6"
+    },
+    "C:two-stage-O48": {
+      "strategy": "two_stage_pipeline",
+      "model": "claude-opus-4-8"
+    },
+    "D:two-stage-G35F-perc-O48-recon": {
+      "strategy": "two_stage_pipeline",
+      "perception_provider": "gemini",
+      "perception_model": "gemini-3.5-flash",
+      "reconciliation_model": "claude-opus-4-8"
+    },
+    "E:two-stage-S46-perc-O48-recon": {
+      "strategy": "two_stage_pipeline",
+      "perception_provider": "claude",
+      "perception_model": "claude-sonnet-4-6",
+      "reconciliation_model": "claude-opus-4-8"
+    }
+  },
+  "timings_sec": {
+    "A:baseline-S46": 45.2,
+    "B:two-stage-S46": 53.5,
+    "C:two-stage-O48": 50.0,
+    "D:two-stage-G35F-perc-O48-recon": 84.2,
+    "E:two-stage-S46-perc-O48-recon": 40.7
+  },
+  "metrics": {
+    "A:baseline-S46": {
+      "n": 20,
+      "accuracy": {
+        "claim_status": 0.75,
+        "evidence_standard_met": 0.8,
+        "issue_type": 0.55,
+        "object_part": 0.85,
+        "severity": 0.25,
+        "valid_image": 0.6
+      },
+      "claim_status_macro_f1": 0.6388888888888888,
+      "claim_status_confusion": {
+        "supported": {
+          "supported": 11,
+          "contradicted": 0,
+          "not_enough_information": 1
+        },
+        "contradicted": {
+          "supported": 1,
+          "contradicted": 2,
+          "not_enough_information": 2
+        },
+        "not_enough_information": {
+          "supported": 0,
+          "contradicted": 1,
+          "not_enough_information": 2
+        }
+      },
+      "risk_flags_mean_jaccard": 0.5335714285714286,
+      "risk_flags_precision": 0.49056603773584906,
+      "risk_flags_recall": 0.896551724137931,
+      "supporting_set_match_rate": 0.7,
+      "verifier_repair_rate": 0.5,
+      "verifier_repairs_by_field": {
+        "evidence_standard_met": 3,
+        "risk_flags": 7,
+        "issue_type": 1,
+        "valid_image": 1
+      }
+    },
+    "B:two-stage-S46": {
+      "n": 20,
+      "accuracy": {
+        "claim_status": 0.7,
+        "evidence_standard_met": 0.8,
+        "issue_type": 0.75,
+        "object_part": 0.85,
+        "severity": 0.7,
+        "valid_image": 0.95
+      },
+      "claim_status_macro_f1": 0.5808080808080808,
+      "claim_status_confusion": {
+        "supported": {
+          "supported": 10,
+          "contradicted": 2,
+          "not_enough_information": 0
+        },
+        "contradicted": {
+          "supported": 0,
+          "contradicted": 3,
+          "not_enough_information": 2
+        },
+        "not_enough_information": {
+          "supported": 0,
+          "contradicted": 2,
+          "not_enough_information": 1
+        }
+      },
+      "risk_flags_mean_jaccard": 0.6266666666666667,
+      "risk_flags_precision": 0.6285714285714286,
+      "risk_flags_recall": 0.7586206896551724,
+      "supporting_set_match_rate": 0.7,
+      "verifier_repair_rate": 0.25,
+      "verifier_repairs_by_field": {
+        "risk_flags": 5
+      }
+    },
+    "C:two-stage-O48": {
+      "n": 20,
+      "accuracy": {
+        "claim_status": 0.6,
+        "evidence_standard_met": 0.8,
+        "issue_type": 0.4,
+        "object_part": 0.9,
+        "severity": 0.3,
+        "valid_image": 0.9
+      },
+      "claim_status_macro_f1": 0.5418470418470419,
+      "claim_status_confusion": {
+        "supported": {
+          "supported": 8,
+          "contradicted": 3,
+          "not_enough_information": 1
+        },
+        "contradicted": {
+          "supported": 1,
+          "contradicted": 2,
+          "not_enough_information": 2
+        },
+        "not_enough_information": {
+          "supported": 0,
+          "contradicted": 1,
+          "not_enough_information": 2
+        }
+      },
+      "risk_flags_mean_jaccard": 0.64,
+      "risk_flags_precision": 0.7142857142857143,
+      "risk_flags_recall": 0.6896551724137931,
+      "supporting_set_match_rate": 0.65,
+      "verifier_repair_rate": 0.2,
+      "verifier_repairs_by_field": {
+        "risk_flags": 4
+      }
+    },
+    "D:two-stage-G35F-perc-O48-recon": {
+      "n": 20,
+      "accuracy": {
+        "claim_status": 0.5,
+        "evidence_standard_met": 0.6,
+        "issue_type": 0.55,
+        "object_part": 0.85,
+        "severity": 0.5,
+        "valid_image": 0.6
+      },
+      "claim_status_macro_f1": 0.42857142857142855,
+      "claim_status_confusion": {
+        "supported": {
+          "supported": 7,
+          "contradicted": 1,
+          "not_enough_information": 4
+        },
+        "contradicted": {
+          "supported": 1,
+          "contradicted": 1,
+          "not_enough_information": 3
+        },
+        "not_enough_information": {
+          "supported": 1,
+          "contradicted": 0,
+          "not_enough_information": 2
+        }
+      },
+      "risk_flags_mean_jaccard": 0.5533333333333333,
+      "risk_flags_precision": 0.6071428571428571,
+      "risk_flags_recall": 0.5862068965517241,
+      "supporting_set_match_rate": 0.55,
+      "verifier_repair_rate": 0.4,
+      "verifier_repairs_by_field": {
+        "risk_flags": 7,
+        "valid_image": 1
+      }
+    },
+    "E:two-stage-S46-perc-O48-recon": {
+      "n": 20,
+      "accuracy": {
+        "claim_status": 0.7,
+        "evidence_standard_met": 0.8,
+        "issue_type": 0.7,
+        "object_part": 0.9,
+        "severity": 0.65,
+        "valid_image": 0.8
+      },
+      "claim_status_macro_f1": 0.582784365393061,
+      "claim_status_confusion": {
+        "supported": {
+          "supported": 10,
+          "contradicted": 2,
+          "not_enough_information": 0
+        },
+        "contradicted": {
+          "supported": 0,
+          "contradicted": 3,
+          "not_enough_information": 2
+        },
+        "not_enough_information": {
+          "supported": 1,
+          "contradicted": 1,
+          "not_enough_information": 1
+        }
+      },
+      "risk_flags_mean_jaccard": 0.6216666666666667,
+      "risk_flags_precision": 0.6666666666666666,
+      "risk_flags_recall": 0.6896551724137931,
+      "supporting_set_match_rate": 0.7,
+      "verifier_repair_rate": 0.25,
+      "verifier_repairs_by_field": {
+        "risk_flags": 5
+      }
+    }
+  }
+}
