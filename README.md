@@ -128,7 +128,7 @@ claims.csv ─┐
 
 ```bash
 # 1. Clone and set up environment
-git clone <repo-url> && cd <repo-dir>
+git clone https://github.com/GodVilan/HackerRank-Orchestrate-June-2026 && cd HackerRank-Orchestrate-June-2026
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r code/requirements.txt
 
