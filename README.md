@@ -127,7 +127,7 @@ claims.csv ─┐
 ## Quick Start
 
 ```bash
-# 1. Clone and set up environment
+# 1. Clone and set up the environment
 git clone https://github.com/GodVilan/HackerRank-Orchestrate-June-2026 && cd HackerRank-Orchestrate-June-2026
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r code/requirements.txt
